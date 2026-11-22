@@ -204,6 +204,5 @@ header{position:fixed;z-index:20;inset:0 0 auto;background:rgba(7,17,31,.9);back
 const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
-
 </body>
 </html>
