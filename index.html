@@ -204,5 +204,52 @@ header{position:fixed;z-index:20;inset:0 0 auto;background:rgba(7,17,31,.9);back
 const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.08});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
+ 
+<section id="research-gallery">
+  <h2>Research Gallery</h2>
+  <p>Microscopy observations from my laboratory research.</p>
+
+  <div class="gallery">
+    <figure>
+      <img src="images/microscopy-observation-01.jpg"
+           alt="Microscopic observation, sample 1">
+      <figcaption>Microscopy Observation – Sample 1</figcaption>
+    </figure>
+
+    <figure>
+      <img src="images/microscopy-observation-02.jpg"
+           alt="Microscopic observation, sample 2">
+      <figcaption>Microscopy Observation – Sample 2</figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+#research-gallery {
+  padding: 40px 20px;
+  text-align: center;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: 25px auto;
+}
+.gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: contain;
+  background: #f3f3f3;
+  border-radius: 10px;
+}
+.gallery figure {
+  margin: 0;
+}
+.gallery figcaption {
+  padding: 10px;
+}
+</style>
+
 </body>
 </html>
