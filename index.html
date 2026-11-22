@@ -1,0 +1,483 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md. Shamiul Sharif Ahmed | Research Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #07111f;
+  --panel: #101e30;
+  --cyan: #38d9e8;
+  --purple: #9b8cff;
+  --white: #edf5ff;
+  --muted: #9aabc0;
+  --border: rgba(255,255,255,.1);
+}
+
+* {margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth;}
+
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:'Inter',sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+a {text-decoration:none;color:inherit;}
+
+.container {width:88%;max-width:1150px;margin:auto;}
+
+nav {
+  position:fixed;top:0;width:100%;z-index:100;
+  background:rgba(7,17,31,.9);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-inner {
+  display:flex;justify-content:space-between;align-items:center;
+  padding:17px 0;
+}
+
+.logo {font-family:'Space Grotesk';font-weight:700;color:var(--cyan);}
+.nav-links {display:flex;gap:25px;font-size:13px;color:var(--muted);}
+.nav-links a:hover {color:var(--cyan);}
+
+.hero {
+  min-height:100vh;
+  display:flex;align-items:center;
+  position:relative;
+  background:
+    radial-gradient(ellipse at 80% 30%,rgba(56,217,232,.13),transparent 35%),
+    radial-gradient(ellipse at 20% 80%,rgba(155,140,255,.12),transparent 35%);
+  padding:120px 0 70px;
+}
+
+.hero-grid {
+  display:grid;grid-template-columns:1.3fr .7fr;
+  align-items:center;gap:50px;
+}
+
+.tag {
+  display:inline-block;padding:7px 15px;
+  border:1px solid rgba(56,217,232,.4);
+  color:var(--cyan);border-radius:30px;
+  font-size:12px;letter-spacing:1px;
+  margin-bottom:25px;
+}
+
+h1 {
+  font-family:'Space Grotesk',sans-serif;
+  font-size:clamp(40px,6vw,70px);
+  line-height:1.12;letter-spacing:-2px;
+}
+
+.gradient {
+  background:linear-gradient(90deg,var(--cyan),var(--purple));
+  -webkit-background-clip:text;color:transparent;
+}
+
+.hero p {color:var(--muted);max-width:620px;margin:24px 0;font-size:16px;}
+
+.btn {
+  display:inline-block;padding:12px 23px;
+  border-radius:7px;font-weight:600;font-size:13px;
+  margin:8px 8px 0 0;transition:.3s;
+}
+
+.primary {background:var(--cyan);color:#06121d;}
+.secondary {border:1px solid var(--border);}
+.btn:hover {transform:translateY(-3px);}
+
+.orbit {
+  width:310px;height:310px;margin:auto;
+  border:1px solid rgba(56,217,232,.35);
+  border-radius:50%;position:relative;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 60px rgba(56,217,232,.08);
+  animation:float 5s ease-in-out infinite;
+}
+
+.orbit::before,.orbit::after {
+  content:"";position:absolute;border:1px solid rgba(155,140,255,.4);
+  border-radius:50%;
+}
+.orbit::before {width:230px;height:350px;transform:rotate(55deg);}
+.orbit::after {width:350px;height:230px;transform:rotate(-55deg);}
+
+.dna {
+  font-size:100px;
+  background:linear-gradient(var(--cyan),var(--purple));
+  -webkit-background-clip:text;color:transparent;
+}
+
+.orbit-dot {
+  position:absolute;width:12px;height:12px;border-radius:50%;
+  background:var(--cyan);box-shadow:0 0 20px var(--cyan);
+}
+.dot1 {top:20px;right:55px;}
+.dot2 {bottom:30px;left:30px;background:var(--purple);}
+
+@keyframes float {
+  0%,100% {transform:translateY(0);}
+  50% {transform:translateY(-15px);}
+}
+
+section {padding:100px 0;scroll-margin-top:70px;}
+
+.section-title {font-family:'Space Grotesk';font-size:35px;margin-bottom:12px;}
+.section-sub {color:var(--muted);margin-bottom:40px;}
+
+.about-grid {display:grid;grid-template-columns:1fr 1fr;gap:45px;}
+
+.panel {
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:13px;padding:28px;
+}
+
+.panel p {color:var(--muted);font-size:14px;}
+
+.stats {
+  display:grid;grid-template-columns:repeat(2,1fr);gap:15px;
+}
+.stat {
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:12px;padding:22px;
+}
+.stat h3 {font-size:25px;color:var(--cyan);}
+.stat span {font-size:12px;color:var(--muted);}
+
+.cards {
+  display:grid;grid-template-columns:repeat(2,1fr);gap:22px;
+}
+
+.project {
+  background:var(--panel);border:1px solid var(--border);
+  padding:28px;border-radius:13px;transition:.3s;
+}
+.project:hover {transform:translateY(-6px);border-color:var(--cyan);}
+.project .number {color:var(--cyan);font-size:13px;}
+.project h3 {font-family:'Space Grotesk';margin:12px 0;}
+.project p {color:var(--muted);font-size:14px;}
+.project .tools {color:var(--cyan);font-size:12px;margin-top:17px;}
+
+.skills-grid {
+  display:grid;grid-template-columns:repeat(3,1fr);gap:17px;
+}
+.skill {
+  padding:22px;background:var(--panel);
+  border:1px solid var(--border);border-radius:10px;
+}
+.skill h3 {font-size:15px;margin-bottom:9px;color:var(--cyan);}
+.skill p {font-size:13px;color:var(--muted);}
+
+.publication {
+  padding:23px 0;border-bottom:1px solid var(--border);
+}
+.publication h3 {font-size:16px;}
+.publication p {font-size:13px;color:var(--muted);margin:8px 0;}
+.pub-link {color:var(--cyan);font-size:13px;}
+
+.award {
+  border-left:3px solid var(--cyan);
+  padding:20px 25px;background:var(--panel);
+  border-radius:0 10px 10px 0;
+}
+.award p {color:var(--muted);font-size:14px;}
+
+.contact-box {
+  text-align:center;padding:55px 25px;
+  background:linear-gradient(120deg,#102b40,#201d3d);
+  border:1px solid var(--border);border-radius:15px;
+}
+.contact-box p {color:var(--muted);margin:15px auto;max-width:550px;}
+
+footer {
+  padding:30px 0;text-align:center;
+  color:var(--muted);font-size:12px;
+  border-top:1px solid var(--border);
+}
+
+.reveal {opacity:0;transform:translateY(25px);transition:.8s;}
+.reveal.visible {opacity:1;transform:translateY(0);}
+
+@media(max-width:800px) {
+  .hero-grid,.about-grid {grid-template-columns:1fr;}
+  .orbit {width:230px;height:230px;margin-top:40px;}
+  .orbit::before {width:180px;height:260px;}
+  .orbit::after {width:260px;height:180px;}
+  .dna {font-size:75px;}
+  .cards,.skills-grid {grid-template-columns:1fr;}
+  .nav-links {gap:12px;font-size:10px;}
+  .logo {font-size:13px;}
+  section {padding:75px 0;}
+}
+
+@media(max-width:430px) {
+  .nav-links {gap:8px;font-size:9px;}
+  .container {width:91%;}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+ <div class="container nav-inner">
+  <a class="logo" href="#home">SHAMIUL.AHMED</a>
+  <div class="nav-links">
+   <a href="#about">About</a>
+   <a href="#research">Research</a>
+   <a href="#skills">Skills</a>
+   <a href="#publications">Publications</a>
+   <a href="#contact">Contact</a>
+  </div>
+ </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+ <div class="container hero-grid">
+  <div>
+   <span class="tag">BIOTECHNOLOGY · MOLECULAR MICROBIOLOGY</span>
+   <h1>Md. Shamiul<br><span class="gradient">Sharif Ahmed</span></h1>
+   <p>
+    MSc Student in Biotechnology and Genetic Engineering at Khulna University.
+    Molecular microbiology researcher interested in antimicrobial resistance,
+    bacterial genetics, food safety and One Health research.
+   </p>
+   <a href="#research" class="btn primary">Explore My Research ↗</a>
+   <a href="#contact" class="btn secondary">Get in Touch</a>
+  </div>
+
+  <div class="orbit">
+   <div class="dna">⌬</div>
+   <span class="orbit-dot dot1"></span>
+   <span class="orbit-dot dot2"></span>
+  </div>
+ </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+ <div class="container reveal">
+  <h2 class="section-title">About Me<span class="gradient">.</span></h2>
+  <p class="section-sub">Research background and academic journey</p>
+
+  <div class="about-grid">
+   <div class="panel">
+    <h3>Research Profile</h3>
+    <br>
+    <p>
+     I am an MSc student in Biotechnology and Genetic Engineering at
+     Khulna University, Bangladesh. My research experience focuses on
+     bacterial isolation, antimicrobial susceptibility, molecular
+     characterization and genetic analysis.
+     <br><br>
+     I am particularly interested in understanding antimicrobial
+     resistance mechanisms, bacterial pathogenicity and the application
+     of genomic approaches to infectious disease research.
+     <br><br>
+     My long-term goal is to contribute to translational microbiology,
+     antimicrobial drug discovery and public health research.
+    </p>
+   </div>
+
+   <div class="stats">
+    <div class="stat">
+     <h3>2024</h3><span>BSc Completed</span>
+    </div>
+    <div class="stat">
+     <h3>MSc</h3><span>Khulna University</span>
+    </div>
+    <div class="stat">
+     <h3>NST</h3><span>Research Fellowship</span>
+    </div>
+    <div class="stat">
+     <h3>AMR</h3><span>Research Interest</span>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+ <div class="container reveal">
+  <h2 class="section-title">Research Projects<span class="gradient">.</span></h2>
+  <p class="section-sub">Selected academic and laboratory research</p>
+
+  <div class="cards">
+
+   <div class="project">
+    <span class="number">01 / CURRENT RESEARCH</span>
+    <h3>Campylobacter & Antimicrobial Resistance</h3>
+    <p>
+     Molecular detection of resistance genes and biofilm-forming ability
+     in Campylobacter spp. isolated from poultry in Khulna, Bangladesh.
+     The study investigates resistance determinants and biofilm
+     characteristics in poultry-associated bacteria.
+    </p>
+    <div class="tools">PCR · Bacterial Culture · AST · Biofilm Assay</div>
+   </div>
+
+   <div class="project">
+    <span class="number">02 / UNDERGRADUATE RESEARCH</span>
+    <h3>Cattle Buccal Isolates & AMR Profiling</h3>
+    <p>
+     Phenotypic characterization and antimicrobial resistance profiling
+     of bacterial isolates obtained from cattle buccal samples in
+     Khulna, Bangladesh.
+    </p>
+    <div class="tools">Isolation · Biochemical Tests · AST · Microbiology</div>
+   </div>
+
+   <div class="project">
+    <span class="number">03 / MOLECULAR GENETICS</span>
+    <h3>Buffalo Mitochondrial DNA Analysis</h3>
+    <p>
+     Genetic diversity and maternal lineage analysis of buffalo
+     populations using mitochondrial D-loop sequencing and
+     population genetics approaches.
+    </p>
+    <div class="tools">DNA Extraction · PCR · Sanger Sequencing · MEGA</div>
+   </div>
+
+   <div class="project">
+    <span class="number">04 / COLLABORATIVE RESEARCH</span>
+    <h3>Environmental AMR Surveillance</h3>
+    <p>
+     Research on antimicrobial resistance in bacterial isolates
+     associated with hospital wastewater and river environments,
+     investigating environmental dissemination of resistance.
+    </p>
+    <div class="tools">Microbiology · Antibiotic Susceptibility · Data Analysis</div>
+   </div>
+
+  </div>
+ </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+ <div class="container reveal">
+  <h2 class="section-title">Technical Expertise<span class="gradient">.</span></h2>
+  <p class="section-sub">Laboratory, molecular and analytical competencies</p>
+
+  <div class="skills-grid">
+   <div class="skill">
+    <h3>01. Microbiology</h3>
+    <p>Bacterial isolation, culture, Gram staining, biochemical identification and selective media.</p>
+   </div>
+   <div class="skill">
+    <h3>02. Molecular Biology</h3>
+    <p>DNA extraction, conventional PCR, primer design and agarose gel electrophoresis.</p>
+   </div>
+   <div class="skill">
+    <h3>03. AMR Research</h3>
+    <p>Kirby-Bauer disc diffusion, antimicrobial susceptibility testing and resistance profiling.</p>
+   </div>
+   <div class="skill">
+    <h3>04. Biofilm Analysis</h3>
+    <p>Crystal violet biofilm assay and phenotypic assessment.</p>
+   </div>
+   <div class="skill">
+    <h3>05. Bioinformatics</h3>
+    <p>MEGA, DnaSP, Arlequin and sequence analysis.</p>
+   </div>
+   <div class="skill">
+    <h3>06. Data Analysis</h3>
+    <p>R, Microsoft Excel, GraphPad Prism and SPSS.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+ <div class="container reveal">
+  <h2 class="section-title">Publications & Research Outputs<span class="gradient">.</span></h2>
+  <p class="section-sub">Scientific contributions and academic dissemination</p>
+
+  <div class="publication">
+   <h3>Phenotypic Characterization and AMR Profiling of Cattle Buccal Isolates in Khulna Region, Bangladesh</h3>
+   <p>Research manuscript / publication details to be added.</p>
+   <span class="pub-link">Add journal name · Year · DOI</span>
+  </div>
+
+  <div class="publication">
+   <h3>Hospital Wastewater and Environmental AMR Research</h3>
+   <p>Collaborative research manuscript.</p>
+   <span class="pub-link">Add journal name · Year · DOI</span>
+  </div>
+
+  <br>
+  <p style="color:var(--muted);font-size:13px;">
+   Replace these entries with your verified publication titles,
+   author details, journal information and DOI links.
+  </p>
+ </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+ <div class="container reveal">
+  <h2 class="section-title">Awards & Recognition<span class="gradient">.</span></h2>
+  <p class="section-sub">Academic achievements and research recognition</p>
+
+  <div class="award">
+   <h3>National Science and Technology (NST) Fellowship</h3>
+   <p>Ministry of Science and Technology, Government of Bangladesh.</p>
+   <p>
+    Awarded for research on molecular detection of resistance genes
+    and biofilm-forming ability in poultry-associated Campylobacter spp.
+   </p>
+  </div>
+ </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+ <div class="container reveal">
+  <div class="contact-box">
+   <h2 class="section-title">Let's Connect<span class="gradient">.</span></h2>
+   <p>
+    Open to research collaborations, academic opportunities,
+    scientific discussions and professional connections.
+   </p>
+
+   <!-- Replace these links with your real profiles -->
+   <a href="mailto:YOUR_EMAIL@example.com" class="btn primary">Email Me</a>
+   <a href="https://www.linkedin.com/" target="_blank" class="btn secondary">LinkedIn</a>
+   <a href="https://www.researchgate.net/" target="_blank" class="btn secondary">ResearchGate</a>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="container">
+  © 2026 Md. Shamiul Sharif Ahmed · Research Portfolio
+  <br>Biotechnology & Genetic Engineering · Khulna University
+ </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+ entries.forEach(entry => {
+  if(entry.isIntersecting) {
+   entry.target.classList.add('visible');
+  }
+ });
+},{threshold:0.12});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
